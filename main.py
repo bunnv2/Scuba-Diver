@@ -54,73 +54,49 @@ class ScubaDiver:
             except ValueError:
                 raise ValueError("Kits must be integers.")
 
-    def sort_by_minimal_weights(self):
+    def get_all_kits_combinations(self):
         """
-        Sort the kits by the minimum weight.
+        Get all the combinations of kits.
         """
-        self.kits.sort(key=lambda kit: kit[2])
+        all_kits_combinations = []
+        for i in range(len(self.kits)):
+            combination_kit = itertools.combinations(self.kits, i)
+            combination_list = list(combination_kit)
+            all_kits_combinations.append(combination_list)
+        return all_kits_combinations
 
     def get_needed_kits_to_fit_tank(self):
         """
-        Get the list of kits with their parameters needed to fill the tank.
+        Get the kits needed to fill the tank.
         """
-        oxygen_cap, oxygen_sum = self.oxygen_needed, 0
-        nitrogen_cap, nitrogen_sum = self.nitrogen_needed, 0
-        self.sort_by_minimal_weights()
-
         needed_kits = []
-        # sub_list = []
-
-        # i = 0
-        # prev = 0
-        # while True:
-        #     if oxygen_sum <= oxygen_cap or nitrogen_sum <= nitrogen_cap:
-        #         oxygen_sum += self.kits[i][0]
-        #         nitrogen_sum += self.kits[i][1]
-        #         sub_list.append(self.kits[i])
-        #         prev = i
-        #     else:
-        #         needed_kits.append(sub_list)
-        #         sub_list = []
-        #         oxygen_sum = 0
-        #         nitrogen_sum = 0
-        #     i += 1
-        #     if i == self.number_of_kits:
-        #         i = prev
-        #         needed_kits.append(sub_list)
-        #         break
-
-        # for idx, kit in enumerate(self.kits):
-        # if oxygen_sum <= oxygen_cap or nitrogen_sum <= nitrogen_cap:
-        #     oxygen_sum += kit[0]
-        #     nitrogen_sum += kit[1]
-        #     needed_kits.append(idx)
-        # needed_kits = [self.kits[i] for i in needed_kits]
-
+        all_kits_combinations = self.get_all_kits_combinations()
+        for combination in all_kits_combinations:
+            for list_of_kits in combination:
+                sum_of_oxygen = [sum(i[0] for i in list_of_kits)]
+                sum_of_nitrogen = [sum(i[1] for i in list_of_kits)]
+                if (
+                    sum_of_oxygen[0] >= self.oxygen_needed
+                    and sum_of_nitrogen[0] >= self.nitrogen_needed
+                ):
+                    needed_kits.append(list_of_kits)
         return needed_kits
 
-    def get_needed_kits_weight(self):
+    def get_minimal_weight_needed_kit(self):
         """
-        Get the total weight of the kits needed to fill the tank.
-        """
-        needed_kits = self.get_needed_kits_to_fit_tank()
-        return sum([i[2] for i in needed_kits])
-
-    def get_all_kit_combinations(self):
-        """
-        Get all possible combinations of kits.
+        Get the minimal weight needed kit.
         """
         needed_kits = self.get_needed_kits_to_fit_tank()
-        return list(
-            itertools.combinations(
-                self.kits,
-            )
-        )
+        minimal_weight = needed_kits[0][0][2]
+        minimal_weight_kit = needed_kits[0]
+        for kit in needed_kits:
+            if kit[0][2] < minimal_weight:
+                minimal_weight = kit[0][2]
+                minimal_weight_kit = kit
+        minimal_weight = sum(i[2] for i in minimal_weight_kit)
+        return minimal_weight
 
 
 projekt = ScubaDiver("input.txt")
-# print(projekt.kits)
-# print("oxygen:", projekt.oxygen_needed, "nitrogen:", projekt.nitrogen_needed)
-# print(projekt.get_needed_kits_to_fit_tank())
-# print("Total weight:", projekt.get_needed_kits_weight())
-print(projekt.get_all_kit_combinations())
+with open("output.txt", "w") as f:
+    f.write(str(projekt.get_minimal_weight_needed_kit()))

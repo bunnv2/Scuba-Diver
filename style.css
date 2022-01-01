@@ -3,6 +3,8 @@ table {
     border-spacing: 0;
     width: auto;
     border: 1px solid rgb(0, 0, 0);
+    margin: auto;
+
 }
 td{
     border: 1px solid rgb(0, 0, 0);
@@ -15,9 +17,8 @@ tr {
 }
 object{
     margin: auto;
-    /* align center */
     display: block;
-    margin: 0 auto;    
+    margin: 0 auto;
 }
 body {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -25,6 +26,9 @@ body {
     line-height: 20px;
     color: #333333;
     background-color: #ffffff;
+    margin: 0 auto;
+    padding: 0;
+    text-align: center;    
 }
 footer{
     margin-top: 7.4%;

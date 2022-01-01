@@ -1,0 +1,32 @@
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: auto;
+    border: 1px solid rgb(0, 0, 0);
+}
+td{
+    border: 1px solid rgb(0, 0, 0);
+    text-align: center;
+    padding: 10px;
+    margin: -10px;
+}
+tr {
+    margin: auto;
+}
+object{
+    margin: auto;
+    /* align center */
+    display: block;
+    margin: 0 auto;    
+}
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 20px;
+    color: #333333;
+    background-color: #ffffff;
+}
+footer{
+    margin-top: 7.4%;
+    text-align: center;
+}

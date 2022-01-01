@@ -1,13 +1,25 @@
 import glob
 from ScubaDiver import ScubaDiver
 
-inputs = glob.glob("inputs/*.txt")
-with open("output.txt", "w") as f:
-    if f.tell() == 0:
-        f.write("")
+from timeit import default_timer as timer
 
-for file in inputs:
+inputs = glob.glob("inputs/*.txt")
+for i, file in enumerate(inputs):
+    with open(f"outputs/output{i+1}.txt", "w") as f:
+        if f.tell() == 0:
+            f.write("")
+    with open(f"clocks/time{i+1}.txt", "w") as f:
+        if f.tell() == 0:
+            f.write("")
+
+for i, file in enumerate(inputs):
     print(file)
     projekt = ScubaDiver(file)
-    with open("output.txt", "a") as f:
-        f.write(str(projekt.get_minimal_weight_needed_kit()) + "\n")
+    start = timer()
+    weight = projekt.get_minimal_weight_needed_kit()
+    execution_time = timer() - start
+    print(f"Execution time: {execution_time}")
+    with open(f"outputs/output{i+1}.txt", "a") as f:
+        f.write(str(weight) + "\n")
+    with open(f"clocks/time{i+1}.txt", "a") as f:
+        f.write(str(execution_time) + "\n")

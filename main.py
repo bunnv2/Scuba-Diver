@@ -23,3 +23,5 @@ for i, file in enumerate(inputs):
         f.write(str(weight) + "\n")
     with open(f"clocks/time{i+1}.txt", "a") as f:
         f.write(str(execution_time) + "\n")
+
+print("Done!")

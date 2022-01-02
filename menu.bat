@@ -1,6 +1,7 @@
 @echo off
-cd %~dp0
+cd C:\Users\bunnv\Desktop\STUDIA\3 SEM\Skrypty\Python\Projekt\Scuba-Diver
 :menu
+cd C:\Users\bunnv\Desktop\STUDIA\3 SEM\Skrypty\Python\Projekt\Scuba-Diver
 cls
 echo  ====================================================================
 echo                                 MENU                               
@@ -37,7 +38,7 @@ GOTO :menu
 cls
 cd C:\Users\bunnv\Desktop
 mkdir Backup-%date%
-copy "C:\Users\bunnv\Desktop\STUDIA\3 SEM\Skrypty\Python\Projekt\Scuba-Diver" C:\Users\bunnv\Desktop\Backup-%date%
+xcopy "C:\Users\bunnv\Desktop\STUDIA\3 SEM\Skrypty\Python\Projekt\Scuba-Diver" C:\Users\bunnv\Desktop\Backup-%date% /E /H /C /I
 echo Backup wykonany pomyslnie, backup znajduje sie na pulpicie.
 pause
 GOTO :menu

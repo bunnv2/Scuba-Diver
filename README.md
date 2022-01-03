@@ -1,6 +1,4 @@
- ====================================================================
               INFORMACJE O PROGRAMIE I JEGO DZIALANIE               
- ====================================================================
 
  Zadaniem programu Scuba-Diver jest dobranie takich zestawow dla ple-
  -twonurka, by spelnialy one wszystkie wymagania a przy tym zeby ich
@@ -16,9 +14,10 @@
  - minimalna ilosc azotu
 
  Program na podstawie tych wymagan dobierze takie zestawy by spelni-
- -ly one wszystkie wymagania i wazyly przy tym jak najmniej.
- ====================================================================
-                              DANE WEJSCIOWE               
+ ly one wszystkie wymagania i wazyly przy tym jak najmniej.
+
+
+                      DANE WEJSCIOWE               
 
   Dane wejsciowe sa zapisywane w folderze Inputs, dla kazdego zestawu
   mamy osobny plik wejsciowy input[x].txt, gdzie x to numer zestawu.
@@ -35,7 +34,6 @@
    W ten sam sposob zapisany jest kazdy inny plik wejsciowy.
 
 
- ====================================================================
                               DANE WEJSCIOWE               
   Dane wyjsciowe sa zapisywane w folderze Outputs, dla kazdego zestawu
   mamy osobny plik wyjsciowy output[x].txt, gdzie x to numer zestawu.

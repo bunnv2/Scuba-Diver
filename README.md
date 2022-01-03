@@ -1,4 +1,4 @@
-              INFORMACJE O PROGRAMIE I JEGO DZIALANIE               
+            INFORMACJE O PROGRAMIE I JEGO DZIALANIE               
 
  Zadaniem programu Scuba-Diver jest dobranie takich zestawow dla ple-
  -twonurka, by spelnialy one wszystkie wymagania a przy tym zeby ich
@@ -34,7 +34,7 @@
    W ten sam sposob zapisany jest kazdy inny plik wejsciowy.
 
 
-                              DANE WEJSCIOWE               
+                      DANE WYJSCIOWE               
   Dane wyjsciowe sa zapisywane w folderze Outputs, dla kazdego zestawu
   mamy osobny plik wyjsciowy output[x].txt, gdzie x to numer zestawu.
 
